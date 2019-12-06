@@ -3,19 +3,25 @@
    CONTATO: mvgaldino60@gmail.com
 */
         
-function showFilter(start = true, show = ".Faixa.preço", max = false) {
+function showFilter(start = true, show = ".Faixa.preço", max = false, btn = false) {
         
-    content = "<input id='min' type='number' placeholder='Min.' required></input><input id='max' type='number' placeholder='Máx.' required></input><button id='go'>Enviar</button>"
+    content = "<input id='min' type='number' placeholder='Min.' required></input><input id='max' type='number' placeholder='Máx.' required></input>";
+
+    if(btn !== false) {
+        content += "<span id='go'><img src='/arquivos/" + btn + "'></span>"
+    } else {
+        content += "<button id='go'>Enviar</button>"
+    }
 
     if(start === true ) {
         $(show).append(content);
     } else if(start === false) {
         $(show).prepend(content);
     } else {
-        console.log("Erro. Parâmetro show deve ser TRUE ou FALSE");
+        console.log("Erro. Parâmetro start deve ser TRUE ou FALSE");
         return
     }
-    
+
     $("#go").click(function(max){
 
         var valmin = $("#min").val();
