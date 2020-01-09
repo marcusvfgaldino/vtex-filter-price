@@ -14,7 +14,7 @@ Este módulo inseri inputs de filtro de faixa de preço, para tornar possível a
 
 - Para exibir o filtro de maneira padrão, basta fazer a chamada da função ``` showFilter() ``` no script da sua loja. O filtro será exibido por padrão logo abaixo do título do filtro de faixa de preço no menu lateral.
 
-- Para exibir os campos no final do filtro de faixa de preço, basta chamar a função showFilter, passando como parâmetro start = false. Exemplo: ``` showFilter(start = false); ```
+- Para exibir os campos no final do filtro de faixa de preço, basta chamar a função showFilter, passando como parâmetro start = false. Exemplo: ``` showFilter(init = false); ```
 
 - Para exibir os campos em outro local da página que não seja o filtro de faixa de preço, basta chamar a função showFilter passando como parâmetro o id ou classe do elemento deverá ser exibido. Exemplo: ``` showFilter(show = '.classe_do_elemento') ```. <b>Obs: Exibindo o os campos do filtro fora do filtro de faixa de preço, não será necessário ativar a função de filtro de preço na loja.</b>
 

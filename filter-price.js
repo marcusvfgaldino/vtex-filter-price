@@ -13,7 +13,7 @@ function showFilter(start = true, show = ".Faixa.preço", max = false, btn = fal
         content += "<button id='go'>Enviar</button>"
     }
 
-    if(start === true ) {
+    if(init === true ) {
         $(show).append(content);
     } else if(start === false) {
         $(show).prepend(content);
