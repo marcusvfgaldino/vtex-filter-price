@@ -3,7 +3,7 @@
    CONTATO: mvgaldino60@gmail.com
 */
         
-const showFilter = function(start = true, show=".Faixa.preço", max = false, btn = false) {
+const showFilter = function(top = true, show=".Faixa.preço", max = false, btn = false) {
     
     content = "<input id='min' type='number' placeholder='Min.' required></input><input id='max' type='number' placeholder='Máx.' required></input>";
 
@@ -15,12 +15,12 @@ const showFilter = function(start = true, show=".Faixa.preço", max = false, btn
 
     elementShow = document.querySelector(show);
 
-    if(start === true ) {
+    if(top === true ) {
         elementShow.insertAdjacentHTML('beforeend', content);
-    } else if(start === false) {
+    } else if(top === false) {
         elementShow.insertAdjacentHTML('afterbegin', content);
     } else {
-        console.log("Erro. Parâmetro start deve ser TRUE ou FALSE");
+        console.log("Erro. Parâmetro top deve ser TRUE ou FALSE");
         return;
     }
 
