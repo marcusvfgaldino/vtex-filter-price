@@ -3,8 +3,8 @@
    CONTATO: mvgaldino60@gmail.com
 */
         
-function showFilter(start = true, show = ".Faixa.preço", max = false, btn = false) {
-        
+const showFilter = function(start = true, show=".Faixa.preço", max = false, btn = false) {
+    
     content = "<input id='min' type='number' placeholder='Min.' required></input><input id='max' type='number' placeholder='Máx.' required></input>";
 
     if(btn !== false) {
@@ -13,20 +13,26 @@ function showFilter(start = true, show = ".Faixa.preço", max = false, btn = fal
         content += "<button id='go'>Enviar</button>"
     }
 
-    if(init === true ) {
-        $(show).append(content);
+    elementShow = document.querySelector(show);
+
+    if(start === true ) {
+        elementShow.insertAdjacentHTML('beforeend', content);
     } else if(start === false) {
-        $(show).prepend(content);
+        elementShow.insertAdjacentHTML('afterbegin', content);
     } else {
         console.log("Erro. Parâmetro start deve ser TRUE ou FALSE");
-        return
+        return;
     }
 
-    $("#go").click(function(max){
+    makeGo();
+}
 
-        var valmin = $("#min").val();
-        var valmax = $("#max").val();
-           
+function makeGo() {
+    elementGo = document.getElementById("go");
+    elementGo.addEventListener("click", function() {
+        var valmin = document.getElementById("min").value;
+        var valmax = document.getElementById("max").value;
+
         if(max !== false) {
             if(valmax > max) {
                 alert("Valor máximo deve ser menor que " + max);
@@ -34,7 +40,5 @@ function showFilter(start = true, show = ".Faixa.preço", max = false, btn = fal
             }
         }
         window.location.href = "de-" + valmin + "-a-" + valmax + "?PS=32&map=c,priceFrom";
-            
-    })
+    });
 }
-

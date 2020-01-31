@@ -3,7 +3,7 @@
    CONTATO: mvgaldino60@gmail.com
 */
         
-const showFilter = function(start = true, show="Faixa.preço", max = false, btn = false) {
+const showFilter = function(start = true, show=".Faixa.preço", max = false, btn = false) {
     
     content = "<input id='min' type='number' placeholder='Min.' required></input><input id='max' type='number' placeholder='Máx.' required></input>";
 
@@ -13,42 +13,26 @@ const showFilter = function(start = true, show="Faixa.preço", max = false, btn 
         content += "<button id='go'>Enviar</button>"
     }
 
-    el = document.querySelector(show);
+    elementShow = document.querySelector(show);
 
-    if(init === true ) {
-        el.insertAdjacentHTML('beforeend', content);
+    if(start === true ) {
+        elementShow.insertAdjacentHTML('beforeend', content);
     } else if(start === false) {
-        el.insertAdjacentHTML('afterbegin', content);
+        elementShow.insertAdjacentHTML('afterbegin', content);
     } else {
         console.log("Erro. Parâmetro start deve ser TRUE ou FALSE");
         return;
     }
+
+    makeGo();
 }
-/*
-function showFilter(start = true, show = ".Faixa.preço", max = false, btn = false) {
-        
-    content = "<input id='min' type='number' placeholder='Min.' required></input><input id='max' type='number' placeholder='Máx.' required></input>";
 
-    if(btn !== false) {
-        content += "<span id='go'><img src='/arquivos/" + btn + "'></span>"
-    } else {
-        content += "<button id='go'>Enviar</button>"
-    }
+function makeGo() {
+    elementGo = document.getElementById("go");
+    elementGo.addEventListener("click", function() {
+        var valmin = document.getElementById("min").value;
+        var valmax = document.getElementById("max").value;
 
-    if(init === true ) {
-        $(show).append(content);
-    } else if(start === false) {
-        $(show).prepend(content);
-    } else {
-        console.log("Erro. Parâmetro start deve ser TRUE ou FALSE");
-        return
-    }
-
-    $("#go").click(function(max){
-
-        var valmin = $("#min").val();
-        var valmax = $("#max").val();
-           
         if(max !== false) {
             if(valmax > max) {
                 alert("Valor máximo deve ser menor que " + max);
@@ -56,7 +40,5 @@ function showFilter(start = true, show = ".Faixa.preço", max = false, btn = fal
             }
         }
         window.location.href = "de-" + valmin + "-a-" + valmax + "?PS=32&map=c,priceFrom";
-            
-    })
-}*/
-
+    });
+}
